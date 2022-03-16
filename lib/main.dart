@@ -74,7 +74,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            actions: <Widget>[],
+            centerTitle: false,
+            title: Container(
+              padding: EdgeInsets.only(left: 900),
+              child: Container(
+                color: HexColor("#FFFFFF"),
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: "ระบุรหัสผ่าน (QC Password)",
+                    labelStyle:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -142,7 +159,9 @@ class boxone extends StatelessWidget {
                           child: Container(
                             child: TextField(
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide(),
+                                ),
                               ),
                             ),
                           ),
