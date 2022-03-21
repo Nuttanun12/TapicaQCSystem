@@ -142,7 +142,7 @@ class boxone extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "จังหวัด :  ",
                             style: TextStyle(
@@ -174,7 +174,7 @@ class boxone extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "ค้นหา\nทะเบียนรถ :  ",
                             style: TextStyle(
@@ -204,7 +204,7 @@ class boxone extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "เลขที่ใบชั่ง :  ",
                             style: TextStyle(
@@ -234,7 +234,7 @@ class boxone extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "วันที่\nเวลาเข้า :  ",
                             style: TextStyle(
@@ -264,7 +264,7 @@ class boxone extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: Text(
                             "น้ำหนักเข้า\n(kg) :  ",
                             style: TextStyle(
@@ -299,8 +299,16 @@ class boxone extends StatelessWidget {
   }
 }
 
-class boxtwo extends StatelessWidget {
+class boxtwo extends StatefulWidget {
   const boxtwo({Key? key}) : super(key: key);
+
+  @override
+  State<boxtwo> createState() => _boxtwoState();
+}
+
+class _boxtwoState extends State<boxtwo> {
+  bool isChecked = false;
+  String select1 = '-';
 
   @override
   Widget build(BuildContext context) {
@@ -321,6 +329,141 @@ class boxtwo extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
+                child: Column(children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 70,
+                                decoration: BoxDecoration(border: Border.all()),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "รายการหัก % น้ำหนัก หัวมัน",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25),
+                                ),
+                              ),
+                              Table(
+                                border: TableBorder.all(),
+                                columnWidths: {
+                                  0: FlexColumnWidth(0.3),
+                                  1: FlexColumnWidth(1.7),
+                                },
+                                defaultVerticalAlignment:
+                                    TableCellVerticalAlignment.middle,
+                                children: <TableRow>[
+                                  TableRow(
+                                    children: [
+                                      Container(
+                                        child: Checkbox(
+                                          value: isChecked,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              isChecked = value!;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 50,
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          " 0.ไม่มีรายการหัก",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 25,
+                                              color: HexColor("#fc0a0a")),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  TableRow(
+                                    children: [
+                                      Container(
+                                        height: 50,
+                                        alignment: Alignment.center,
+                                        child: DropdownButton<String>(
+                                          value: select1,
+                                          onChanged: (String? newValue) {
+                                            setState(() {
+                                              select1 = newValue!;
+                                            });
+                                          },
+                                          items: <String>[
+                                            '-',
+                                            '1%',
+                                            '2%',
+                                            '3%',
+                                            '4%',
+                                            '5%',
+                                            '6%',
+                                            '7%',
+                                            '8%',
+                                            '9%',
+                                            '10%',
+                                            '15%',
+                                            '20%',
+                                            '30%'
+                                          ].map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                        ),
+                                      ),
+                                      Container(
+                                          height: 50,
+                                          alignment: Alignment.centerLeft,
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                " 1.หักดิน",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+                                              Text(
+                                                " {1% 2% 3% 4% 5% 6% 7% 8% 9% 10% 15% 20% 30%}",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                            ],
+                                          )),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                            flex: 1,
+                            child: Container(
+                              height: 70,
+                              decoration: BoxDecoration(border: Border.all()),
+                              alignment: Alignment.center,
+                              child: Text(
+                                "หักค่าดั๊ม ค่าลงมัน",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 25),
+                              ),
+                            ))
+                      ],
+                    ),
+                  )
+                ]),
               ),
             ),
           ),
