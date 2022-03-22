@@ -308,7 +308,44 @@ class boxtwo extends StatefulWidget {
 
 class _boxtwoState extends State<boxtwo> {
   bool isChecked = false;
+  var dropdownitem0 = [
+    '-',
+    '1%',
+    '2%',
+    '3%',
+    '4%',
+    '5%',
+    '6%',
+    '7%',
+    '8%',
+    '9%',
+    '10%',
+    '15%',
+    '20%',
+    '30%'
+  ];
+  var dropdownitem1 = [
+    '-',
+    '1%',
+    '2%',
+    '3%',
+    '4%',
+    '5%',
+    '10%',
+    '15%',
+    '20%',
+    '30%'
+  ];
+  String percenttext0 = " {1% 2% 3% 4% 5% 6% 7% 8% 9% 10% 15% 20% 30%}";
+  String percenttext1 = " {1% 2% 3% 4% 5% 10% 15% 20% 30%}";
   String select1 = '-';
+  String select2 = '-';
+  String select3 = '-';
+  String select4 = '-';
+  String select5 = '-';
+  String select6 = '-';
+  String select7 = '-';
+  String select8 = '-';
 
   @override
   Widget build(BuildContext context) {
@@ -329,126 +366,281 @@ class _boxtwoState extends State<boxtwo> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
-                child: Column(children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Column(
-                            children: [
-                              Container(
-                                height: 70,
-                                decoration: BoxDecoration(border: Border.all()),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "รายการหัก % น้ำหนัก หัวมัน",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25),
-                                ),
-                              ),
-                              Table(
-                                border: TableBorder.all(),
-                                columnWidths: {
-                                  0: FlexColumnWidth(0.3),
-                                  1: FlexColumnWidth(1.7),
-                                },
-                                defaultVerticalAlignment:
-                                    TableCellVerticalAlignment.middle,
-                                children: <TableRow>[
-                                  TableRow(
-                                    children: [
-                                      Container(
-                                        child: Checkbox(
-                                          value: isChecked,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              isChecked = value!;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 50,
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          " 0.ไม่มีรายการหัก",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 25,
-                                              color: HexColor("#fc0a0a")),
-                                        ),
-                                      ),
-                                    ],
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 70,
+                                  decoration:
+                                      BoxDecoration(border: Border.all()),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "รายการหัก % น้ำหนัก หัวมัน",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25),
                                   ),
-                                  TableRow(
-                                    children: [
-                                      Container(
-                                        height: 50,
-                                        alignment: Alignment.center,
-                                        child: DropdownButton<String>(
-                                          value: select1,
-                                          onChanged: (String? newValue) {
-                                            setState(() {
-                                              select1 = newValue!;
-                                            });
-                                          },
-                                          items: <String>[
-                                            '-',
-                                            '1%',
-                                            '2%',
-                                            '3%',
-                                            '4%',
-                                            '5%',
-                                            '6%',
-                                            '7%',
-                                            '8%',
-                                            '9%',
-                                            '10%',
-                                            '15%',
-                                            '20%',
-                                            '30%'
-                                          ].map<DropdownMenuItem<String>>(
-                                              (String value) {
-                                            return DropdownMenuItem<String>(
-                                              value: value,
-                                              child: Text(value),
-                                            );
-                                          }).toList(),
+                                ),
+                                Table(
+                                  border: TableBorder.all(),
+                                  columnWidths: {
+                                    0: FlexColumnWidth(0.3),
+                                    1: FlexColumnWidth(1.7),
+                                  },
+                                  defaultVerticalAlignment:
+                                      TableCellVerticalAlignment.middle,
+                                  children: <TableRow>[
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          child: Checkbox(
+                                            value: isChecked,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                isChecked = value!;
+                                              });
+                                            },
+                                          ),
                                         ),
-                                      ),
-                                      Container(
-                                          height: 50,
+                                        Container(
+                                          height: 45,
                                           alignment: Alignment.centerLeft,
-                                          child: Row(
-                                            children: [
-                                              Text(
-                                                " 1.หักดิน",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25,
-                                                ),
-                                              ),
-                                              Text(
-                                                " {1% 2% 3% 4% 5% 6% 7% 8% 9% 10% 15% 20% 30%}",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 12,
-                                                ),
-                                              ),
-                                            ],
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              )
-                            ],
+                                          child: Text(
+                                            " 0.ไม่มีรายการหัก",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25,
+                                                color: HexColor("#fc0a0a")),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    //TableRow 1
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select1,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select1 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem0
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(" 1.หักดิน", percenttext0)
+                                      ],
+                                    ),
+                                    //TableRow 2
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select2,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select2 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(" 2.หักเหง้า", percenttext1)
+                                      ],
+                                    ),
+                                    //TableRow 3
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select3,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select3 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(" 3.หักเน่า", percenttext1),
+                                      ],
+                                    ),
+                                    //TableRow 4
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select4,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select4 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(
+                                            " 4.หักเปียกน้ำ", percenttext1),
+                                      ],
+                                    ),
+                                    //TableRow 5
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select5,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select5 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(
+                                            " 5.หักมันหัวจิ๋ว", percenttext1),
+                                      ],
+                                    ),
+                                    //TableRow 6
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select6,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select6 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(
+                                            " 6.หักมันอ่อน", percenttext1),
+                                      ],
+                                    ),
+                                    //TableRow 7
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select7,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select7 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(" 7.หักราก", percenttext1),
+                                      ],
+                                    ),
+                                    //TableRow 8
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          height: 45,
+                                          alignment: Alignment.center,
+                                          child: DropdownButton<String>(
+                                            value: select8,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select8 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        boxtabletwo(
+                                            " 8.หักหัวมันแตก", percenttext1),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Expanded(
+                          Expanded(
                             flex: 1,
                             child: Container(
                               height: 70,
@@ -459,11 +651,13 @@ class _boxtwoState extends State<boxtwo> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 25),
                               ),
-                            ))
-                      ],
-                    ),
-                  )
-                ]),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
@@ -471,4 +665,28 @@ class _boxtwoState extends State<boxtwo> {
       ),
     );
   }
+}
+
+boxtabletwo(boxtext, percenttext) {
+  return Container(
+    alignment: Alignment.centerLeft,
+    child: Row(
+      children: [
+        Text(
+          boxtext,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+          ),
+        ),
+        Text(
+          percenttext,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 12,
+          ),
+        ),
+      ],
+    ),
+  );
 }
