@@ -307,7 +307,10 @@ class boxtwo extends StatefulWidget {
 }
 
 class _boxtwoState extends State<boxtwo> {
-  bool isChecked = false;
+  bool Check0 = false;
+  bool Check1 = false;
+  bool Check2 = false;
+  bool Check3 = false;
   var dropdownitem0 = [
     '-',
     '1%',
@@ -402,10 +405,10 @@ class _boxtwoState extends State<boxtwo> {
                                       children: [
                                         Container(
                                           child: Checkbox(
-                                            value: isChecked,
+                                            value: Check0,
                                             onChanged: (value) {
                                               setState(() {
-                                                isChecked = value!;
+                                                Check0 = value!;
                                               });
                                             },
                                           ),
@@ -642,19 +645,102 @@ class _boxtwoState extends State<boxtwo> {
                           ),
                           Expanded(
                             flex: 1,
-                            child: Container(
-                              height: 70,
-                              decoration: BoxDecoration(border: Border.all()),
-                              alignment: Alignment.center,
-                              child: Text(
-                                "หักค่าดั๊ม ค่าลงมัน",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 25),
-                              ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 70,
+                                  decoration:
+                                      BoxDecoration(border: Border.all()),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "หักค่าดั๊ม ค่าลงมัน",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25),
+                                  ),
+                                ),
+                                Container(
+                                  height: 408,
+                                  decoration:
+                                      BoxDecoration(border: Border.all()),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Container(
+                                            child: Checkbox(
+                                              value: Check1,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  Check1 = value!;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                          boxtworight("หักค่าดั๊ม", "(20บ.)",
+                                              HexColor("#000000")),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Container(
+                                            child: Checkbox(
+                                              value: Check2,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  Check2 = value!;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                          boxtworight("หักค่าลง", "(6บ./ตัน)",
+                                              HexColor("#000000")),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Container(
+                                            child: Checkbox(
+                                              value: Check3,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  Check3 = value!;
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                          boxtworight("ไม่หัก", "(ลงเอง)",
+                                              HexColor("#fc0a0a")),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(top: 50),
+                                        child: ElevatedButton.icon(
+                                          onPressed: () {
+                                            setState(() {});
+                                          },
+                                          icon: Icon(
+                                            Icons.save,
+                                            size: 40,
+                                          ),
+                                          label: Text(
+                                            "บันทึก",
+                                            style: TextStyle(fontSize: 35),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(border: Border.all()),
+                      child: Text("dffdf"),
                     )
                   ],
                 ),
@@ -688,5 +774,23 @@ boxtabletwo(boxtext, percenttext) {
         ),
       ],
     ),
+  );
+}
+
+boxtworight(text1, text2, color) {
+  return Row(
+    children: [
+      Container(
+        child: Text(
+          text1,
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 25, color: color),
+        ),
+      ),
+      Text(
+        text2,
+        style: TextStyle(fontSize: 25, color: color),
+      )
+    ],
   );
 }
