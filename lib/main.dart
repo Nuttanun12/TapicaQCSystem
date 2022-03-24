@@ -311,6 +311,7 @@ class _boxtwoState extends State<boxtwo> {
   bool Check1 = false;
   bool Check2 = false;
   bool Check3 = false;
+  bool Check4 = false;
   var dropdownitem0 = [
     '-',
     '1%',
@@ -738,10 +739,190 @@ class _boxtwoState extends State<boxtwo> {
                         ],
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(border: Border.all()),
-                      child: Text("dffdf"),
-                    )
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
+                      child: Table(
+                        border: TableBorder.all(),
+                        columnWidths: {
+                          0: FlexColumnWidth(0.2),
+                          1: FlexColumnWidth(1.8),
+                        },
+                        defaultVerticalAlignment:
+                            TableCellVerticalAlignment.middle,
+                        children: <TableRow>[
+                          TableRow(
+                            children: [
+                              Container(
+                                child: Checkbox(
+                                  value: Check4,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      Check4 = value!;
+                                    });
+                                  },
+                                ),
+                              ),
+                              Container(
+                                height: 100,
+                                alignment: Alignment.centerLeft,
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 10),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            " 9.ไม่รับซื้อ",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 25,
+                                                color: HexColor("#fc0a0a")),
+                                          ),
+                                          Text(
+                                            " เหตุผลเนื่องจาก",
+                                            style: TextStyle(
+                                                color: HexColor("#fc0a0a"),
+                                                fontSize: 25),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
+                                          "(1)",
+                                          style: TextStyle(
+                                              color: HexColor("#fc0a0a"),
+                                              fontSize: 18),
+                                        ),
+                                        Container(
+                                          width: 100,
+                                          child: DropdownButton<String>(
+                                            isExpanded: true,
+                                            underline: Container(
+                                              height: 2,
+                                              color: HexColor("#000000"),
+                                            ),
+                                            value: select7,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select7 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        Text(
+                                          "(2)",
+                                          style: TextStyle(
+                                              color: HexColor("#fc0a0a"),
+                                              fontSize: 18),
+                                        ),
+                                        Container(
+                                          width: 100,
+                                          child: DropdownButton<String>(
+                                            isExpanded: true,
+                                            underline: Container(
+                                              height: 2,
+                                              color: HexColor("#000000"),
+                                            ),
+                                            value: select7,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select7 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        Text(
+                                          "(3)",
+                                          style: TextStyle(
+                                              color: HexColor("#fc0a0a"),
+                                              fontSize: 18),
+                                        ),
+                                        Container(
+                                          width: 100,
+                                          child: DropdownButton<String>(
+                                            isExpanded: true,
+                                            underline: Container(
+                                              height: 2,
+                                              color: HexColor("#000000"),
+                                            ),
+                                            value: select7,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select7 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                        Text(
+                                          "(4)",
+                                          style: TextStyle(
+                                              color: HexColor("#fc0a0a"),
+                                              fontSize: 18),
+                                        ),
+                                        Container(
+                                          width: 100,
+                                          child: DropdownButton<String>(
+                                            isExpanded: true,
+                                            underline: Container(
+                                              height: 2,
+                                              color: HexColor("#000000"),
+                                            ),
+                                            value: select7,
+                                            onChanged: (String? newValue) {
+                                              setState(() {
+                                                select7 = newValue!;
+                                              });
+                                            },
+                                            items: dropdownitem1
+                                                .map<DropdownMenuItem<String>>(
+                                                    (String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
