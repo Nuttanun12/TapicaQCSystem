@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:card_settings/card_settings.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter/services.dart';
+import 'common/textfield_cardone.dart';
 
 void main() {
   runApp(MyApp());
@@ -96,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(flex: 1, child: boxone()),
-              Expanded(flex: 2, child: boxtwo()),
+              Expanded(flex: 1, child: cardone()),
+              Expanded(flex: 2, child: cardtwo()),
             ],
           )
         ],
@@ -106,8 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class boxone extends StatelessWidget {
-  const boxone({Key? key}) : super(key: key);
+class cardone extends StatelessWidget {
+  const cardone({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -137,158 +138,11 @@ class boxone extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "จังหวัด :  ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Container(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "ค้นหา\nทะเบียนรถ :  ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Container(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "เลขที่ใบชั่ง :  ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Container(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "วันที่\nเวลาเข้า :  ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Container(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            "น้ำหนักเข้า\n(kg) :  ",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Container(
-                            child: TextField(
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  textfield_cardone(title: "จังหวัด : "),
+                  textfield_cardone(title: "ค้นหา\nทะเบียนรถ :  "),
+                  textfield_cardone(title: "เลขที่ใบชั่ง :  "),
+                  textfield_cardone(title: "วันที่\nเวลาเข้า :  "),
+                  textfield_cardone(title: "น้ำหนักเข้า\n(kg) :  "),
                 ],
               ),
             ),
@@ -299,14 +153,14 @@ class boxone extends StatelessWidget {
   }
 }
 
-class boxtwo extends StatefulWidget {
-  const boxtwo({Key? key}) : super(key: key);
+class cardtwo extends StatefulWidget {
+  const cardtwo({Key? key}) : super(key: key);
 
   @override
-  State<boxtwo> createState() => _boxtwoState();
+  State<cardtwo> createState() => _cardtwoState();
 }
 
-class _boxtwoState extends State<boxtwo> {
+class _cardtwoState extends State<cardtwo> {
   bool Check0 = false,
       Check1 = false,
       Check2 = false,
@@ -450,7 +304,7 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(" 1.หักดิน", percenttext0)
+                                        cardtabletwo(" 1.หักดิน", percenttext0)
                                       ],
                                     ),
                                     //TableRow 2
@@ -476,7 +330,8 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(" 2.หักเหง้า", percenttext1)
+                                        cardtabletwo(
+                                            " 2.หักเหง้า", percenttext1)
                                       ],
                                     ),
                                     //TableRow 3
@@ -502,7 +357,8 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(" 3.หักเน่า", percenttext1),
+                                        cardtabletwo(
+                                            " 3.หักเน่า", percenttext1),
                                       ],
                                     ),
                                     //TableRow 4
@@ -528,7 +384,7 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(
+                                        cardtabletwo(
                                             " 4.หักเปียกน้ำ", percenttext1),
                                       ],
                                     ),
@@ -555,7 +411,7 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(
+                                        cardtabletwo(
                                             " 5.หักมันหัวจิ๋ว", percenttext1),
                                       ],
                                     ),
@@ -582,7 +438,7 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(
+                                        cardtabletwo(
                                             " 6.หักมันอ่อน", percenttext1),
                                       ],
                                     ),
@@ -609,7 +465,7 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(" 7.หักราก", percenttext1),
+                                        cardtabletwo(" 7.หักราก", percenttext1),
                                       ],
                                     ),
                                     //TableRow 8
@@ -635,7 +491,7 @@ class _boxtwoState extends State<boxtwo> {
                                             }).toList(),
                                           ),
                                         ),
-                                        boxtabletwo(
+                                        cardtabletwo(
                                             " 8.หักหัวมันแตก", percenttext1),
                                       ],
                                     ),
@@ -678,7 +534,7 @@ class _boxtwoState extends State<boxtwo> {
                                               },
                                             ),
                                           ),
-                                          boxtworight("หักค่าดั๊ม", "(20บ.)",
+                                          cardtworight("หักค่าดั๊ม", "(20บ.)",
                                               HexColor("#000000")),
                                         ],
                                       ),
@@ -694,7 +550,7 @@ class _boxtwoState extends State<boxtwo> {
                                               },
                                             ),
                                           ),
-                                          boxtworight("หักค่าลง", "(6บ./ตัน)",
+                                          cardtworight("หักค่าลง", "(6บ./ตัน)",
                                               HexColor("#000000")),
                                         ],
                                       ),
@@ -710,7 +566,7 @@ class _boxtwoState extends State<boxtwo> {
                                               },
                                             ),
                                           ),
-                                          boxtworight("ไม่หัก", "(ลงเอง)",
+                                          cardtworight("ไม่หัก", "(ลงเอง)",
                                               HexColor("#fc0a0a")),
                                         ],
                                       ),
@@ -934,13 +790,13 @@ class _boxtwoState extends State<boxtwo> {
   }
 }
 
-boxtabletwo(boxtext, percenttext) {
+cardtabletwo(cardtext, percenttext) {
   return Container(
     alignment: Alignment.centerLeft,
     child: Row(
       children: [
         Text(
-          boxtext,
+          cardtext,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
@@ -958,7 +814,7 @@ boxtabletwo(boxtext, percenttext) {
   );
 }
 
-boxtworight(text1, text2, color) {
+cardtworight(text1, text2, color) {
   return Row(
     children: [
       Container(
