@@ -307,49 +307,49 @@ class boxtwo extends StatefulWidget {
 }
 
 class _boxtwoState extends State<boxtwo> {
-  bool Check0 = false;
-  bool Check1 = false;
-  bool Check2 = false;
-  bool Check3 = false;
-  bool Check4 = false;
+  bool Check0 = false,
+      Check1 = false,
+      Check2 = false,
+      Check3 = false,
+      Checknotbuy = false;
   var dropdownitem0 = [
-    '-',
-    '1%',
-    '2%',
-    '3%',
-    '4%',
-    '5%',
-    '6%',
-    '7%',
-    '8%',
-    '9%',
-    '10%',
-    '15%',
-    '20%',
-    '30%'
-  ];
-  var dropdownitem1 = [
-    '-',
-    '1%',
-    '2%',
-    '3%',
-    '4%',
-    '5%',
-    '10%',
-    '15%',
-    '20%',
-    '30%'
-  ];
-  String percenttext0 = " {1% 2% 3% 4% 5% 6% 7% 8% 9% 10% 15% 20% 30%}";
-  String percenttext1 = " {1% 2% 3% 4% 5% 10% 15% 20% 30%}";
-  String select1 = '-';
-  String select2 = '-';
-  String select3 = '-';
-  String select4 = '-';
-  String select5 = '-';
-  String select6 = '-';
-  String select7 = '-';
-  String select8 = '-';
+        '-',
+        '1%',
+        '2%',
+        '3%',
+        '4%',
+        '5%',
+        '6%',
+        '7%',
+        '8%',
+        '9%',
+        '10%',
+        '15%',
+        '20%',
+        '30%'
+      ],
+      dropdownitem1 = [
+        '-',
+        '1%',
+        '2%',
+        '3%',
+        '4%',
+        '5%',
+        '10%',
+        '15%',
+        '20%',
+        '30%'
+      ];
+  String percenttext0 = " {1% 2% 3% 4% 5% 6% 7% 8% 9% 10% 15% 20% 30%}",
+      percenttext1 = " {1% 2% 3% 4% 5% 10% 15% 20% 30%}",
+      select1 = '-',
+      select2 = '-',
+      select3 = '-',
+      select4 = '-',
+      select5 = '-',
+      select6 = '-',
+      select7 = '-',
+      select8 = '-';
 
   @override
   Widget build(BuildContext context) {
@@ -756,10 +756,10 @@ class _boxtwoState extends State<boxtwo> {
                             children: [
                               Container(
                                 child: Checkbox(
-                                  value: Check4,
+                                  value: Checknotbuy,
                                   onChanged: (value) {
                                     setState(() {
-                                      Check4 = value!;
+                                      Checknotbuy = value!;
                                     });
                                   },
                                 ),
